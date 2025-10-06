@@ -1,1 +1,32 @@
+In this exercise, you'll work on creating a valid dictionary that maps AI model architectures to their respective research topics.
+In Python, dictionary keys must be immutable types, such as strings or tuples. Lists, being mutable, cannot be used as dictionary keys.
+This exercise will help you understand the importance of using appropriate data types for dictionary keys, which is crucial for handling data correctly in AI applications.
+Quiz: Valid Dictionary for AI Model Architectures
+In this exercise, you will correct an invalid dictionary that maps AI model researchers to their research topics.
+In Python, dictionary keys must be immutable types, such as strings or tuples. Lists, being mutable, cannot be used as dictionary keys.
 
+Here is the invalid dictionary provided:
+# invalid dictionary - this should break
+research_topics = {
+    ['AlexNet', 'Convolutional Neural Network']: 'Image Classification',
+    ['VGG', 'Visual Geometry Group']: 'Deep Learning',
+    ['ResNet', 'Residual Networks']: 'Network Architecture'
+}
+#### CHANGE FROM [ TO ( BECAUSE [ ARE LIST AND IT IS MUTABLE AND CANNOT BE USED AS DICTIONARY KEYS
+#### CHANGE FROM [ TO ( BECAUSE [ ARE LIST AND IT IS MUTABLE AND CANNOT BE USED AS DICTIONARY KEYS
+#### CHANGE FROM [ TO ( BECAUSE [ ARE LIST AND IT IS MUTABLE AND CANNOT BE USED AS DICTIONARY KEYS
+
+# corrected dictionary using tuples as keys 
+research_topics = { 
+    ('AlexNet', 'Convolutional Neural Network'): 'Image Classification', 
+    ('VGG', 'Visual Geometry Group'): 'Deep Learning', 
+    ('ResNet', 'Residual Networks'): 'Network Architecture' 
+} 
+# Verify the corrected dictionary 
+print(research_topics) 
+
+{('AlexNet', 'Convolutional Neural Network'): 'Image Classification', ('VGG', 'Visual Geometry Group'): 'Deep Learning', ('ResNet', 'Residual Networks'): 'Network Architecture'} 
+
+Explanation: 
+In the invalid dictionary, lists are used as keys, which causes an error because lists are mutable and cannot be used as dictionary keys. 
+The corrected dictionary uses tuples instead of lists for the keys. Tuples are immutable and can be used as dictionary keys. 
