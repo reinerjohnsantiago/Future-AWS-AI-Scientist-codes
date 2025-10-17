@@ -1,0 +1,65 @@
+Exercise: Feature Summary for Tweet
+In this exercise, you'll concatenate model feature descriptions into a single string for a tweet, ensuring the final string does not exceed 140 characters.
+
+Problem Statement
+Given a list of model feature descriptions, concatenate them into a single string for a tweet. The final string should not exceed 140 characters.
+
+Example Input:
+
+features = [
+    "Feature 1: High accuracy",
+    "Feature 2: Low latency",
+    "Feature 3: Scalability",
+    "Feature 4: Robustness",
+    "Feature 5: Interpretability"
+]
+Instructions:
+
+Initialize an empty string feature_summary.
+Iterate through the features list and concatenate each feature to feature_summary with a line break (\n) in between.
+Ensure that the final feature_summary does not exceed 140 characters.
+#------ANSWER#------ANSWER#------ANSWER#------ANSWER#------ANSWER#------ANSWER#------ANSWER#------ANSWER#------ANSWER#------ANSWER#------ANSWER#------ANSWER#------ANSWER#------ANSWER#------ANSWER#------ANSWER#------ANSWER#------ANSWER
+
+features = [
+    "Feature 1: High accuracy",
+    "Feature 2: Low latency",
+    "Feature 3: Scalability",
+    "Feature 4: Robustness",
+    "Feature 5: Interpretability"
+]
+
+feature_summary = ""
+for feature in features:
+    # Check if adding this feature would exceed 140 characters
+    # Include +1 for the newline character we'll add
+    if len(feature_summary) + len(feature) + 1 <= 140:
+        if feature_summary:  # If not empty, add a newline first
+            feature_summary += "\n"
+        feature_summary += feature
+    else:
+        # Stop adding features if we would exceed the limit
+        break
+
+print(feature_summary)
+print(f"Length: {len(feature_summary)} characters")
+### Notebook grading
+def get_solution(features):
+    feature_summary = ""
+    for feature in features:
+        if len(feature_summary) + len(feature) + 1 > 140:
+            if feature_summary:
+                feature_summary += "\n"
+            feature_summary += feature[:140 - len(feature_summary)]
+            break
+        if feature_summary:
+            feature_summary += "\n"
+        feature_summary += feature
+
+    return feature_summary
+
+correct_ans = get_solution(features)
+
+if feature_summary == correct_ans:
+    print("Well done!")
+else:
+    print("Make sure you're inserting spaces between each feature, and that the summary is exactly 140 characters long.")
