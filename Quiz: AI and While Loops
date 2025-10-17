@@ -1,0 +1,139 @@
+Learning Rate Schedule and Parameter Updates
+In machine learning, particularly in training neural networks, managing learning rates and updating model parameters are essential tasks that significantly influence the model's performance and convergence speed.
+This set of exercises will help you understand and implement these key concepts using while and for loops.
+
+In the first exercise, you'll implement a learning rate decay schedule using a while loop.
+You'll start with an initial learning rate and apply a decay factor at each epoch to simulate the process of fine-tuning the learning rate over time.
+
+Learning Rate Schedule:
+Learning Rate: A hyperparameter that controls how much to change the model in response to the estimated error each time the model weights are updated.
+Learning Rate Decay: A technique to gradually reduce the learning rate during training. This helps the model converge more smoothly and avoids overshooting the minimum of the loss function.
+Epoch: One complete pass through the entire training dataset. Reducing the learning rate over epochs can improve training stability and model performance.
+
+In the second exercise, you'll iterate through a list of model parameters and their corresponding gradients using a for loop.
+You'll apply gradient updates to these parameters, simulating the weight adjustment process that occurs during neural network training.
+
+Parameter Updates:
+Model Parameters: The weights and biases in a neural network that are adjusted during training to minimize the loss function.
+Gradients: The partial derivatives of the loss function with respect to the model parameters. They indicate the direction and magnitude of parameter updates.
+Gradient Descent: An optimization algorithm used to minimize the loss function by iteratively moving in the direction of steepest descent as defined by the gradients.
+
+Through these exercises, you will gain hands-on experience in managing learning rates and updating model parameters, both of which are fundamental techniques in training effective and efficient machine learning models.
+Let's dive into the exercises and start with implementing a learning rate schedule, followed by updating model parameters through gradient descent.
+################################################################################################################################################################################################################################################
+
+Exercise 1: Learning Rate Schedule using While Loops
+Problem Statement
+Given an initial learning rate and a decay factor, use a while loop to apply the decay to the learning rate at each epoch until a specified number of epochs is reached.
+
+Example Input:
+
+initial_lr = 0.1
+decay_factor = 0.9
+epochs = 5
+Instructions:
+
+Initialize the learning rate to initial_lr.
+Use a while loop to apply the decay factor to the learning rate for each epoch.
+Print the learning rate for each epoch.
+#------ANSWER#------ANSWER#------ANSWER#------ANSWER#------ANSWER#------ANSWER#------ANSWER#------ANSWER#------ANSWER#------ANSWER#------ANSWER
+
+# Initial learning rate
+initial_lr = 0.1
+# Decay factor
+decay_factor = 0.9
+# Number of epochs
+epochs = 5
+
+# Initialize current learning rate
+current_lr = initial_lr
+# Initialize current epoch
+current_epoch = 0
+
+# While loop to apply learning rate decay
+while current_epoch < epochs:
+    #print learning rate
+    print(f"Epoch {current_epoch}: Learning Rate = {current_lr}")
+    
+    #apply decay to learning rate for next epoch
+    current_lr = current_lr * decay_factor
+    
+    #move to next epoch
+    current_epoch += 1
+
+# Notebook grading
+if abs(current_lr - 0.059049) < 1e-6:
+    print("Nice work!")
+else:
+    print("Not quite. Check your learning rate calculations.")
+########################################################################################################################################################
+Exercise 2: Iterating Through Model Parameters using For Loops
+Problem Statement
+Given a list of model parameters and their corresponding gradients, use a for loop to update each parameter.
+
+Example Input:
+
+parameters = [0.5, 1.5, -0.5]
+gradients = [0.1, -0.2, 0.05]
+learning_rate = 0.01
+Instructions:
+
+Use a for loop to iterate through the parameters and gradients.
+Apply a gradient update to each parameter using the learning rate.
+#------ANSWER#------ANSWER#------ANSWER#------ANSWER#------ANSWER#------ANSWER#------ANSWER#------ANSWER#------ANSWER#------ANSWER#------ANSWER
+
+# Model parameters
+parameters = [0.5, 1.5, -0.5]
+# Corresponding gradients
+gradients = [0.1, -0.2, 0.05]
+# Learning rate
+learning_rate = 0.01
+
+# For loop to update each parameter
+for i in range(len(parameters)):
+    #apply gradiante update parameter = parameter -learning_rate * gradient
+    parameters[i] = parameters[i] - learning_rate * gradients[i]
+    #print the updated parameter
+    print(f"Parameter {i}: {parameters[i]}")
+
+# Notebook grading
+if parameters == [0.499, 1.502, -0.5005]:
+    print("Nice work!")
+else:
+    print("Not quite. Check your parameter updates.")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
